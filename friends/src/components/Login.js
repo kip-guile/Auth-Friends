@@ -11,8 +11,8 @@ export default function Login(props) {
             password: passwordRef.current.value,
         })
             .then(response =>  {
-                localStorage.setItem('token', response.data.token);
-
+                localStorage.setItem('token', response.data.payload);
+                props.history.push('/friends');
             })
             .catch(error => {
                 alert(error.response.data.error)
@@ -23,7 +23,7 @@ export default function Login(props) {
         <div>
             <div>
                 Username: <input ref={usernameRef} type='text' placeholder='username' />
-                Password: <input ref={passwordRef} type='password' placeholder='password' />
+                Password: <input ref={passwordRef} type='text' placeholder='password' />
             </div>
             <div>
                 <button onClick={submit}>Login</button>

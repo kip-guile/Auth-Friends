@@ -5,7 +5,7 @@ export default function FriendsList(props){
     const [friends, setFriends] = useState([]);
 
     useEffect(() => {
-        withAuth().get(`http://localhost:5000/api/friends`)
+        withAuth().get('http://localhost:5000/api/friends')
             .then(response => {
                 setFriends(response.data)
             })
